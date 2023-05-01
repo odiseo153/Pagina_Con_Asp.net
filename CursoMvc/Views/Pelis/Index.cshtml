@@ -1,0 +1,33 @@
+﻿@using System.ComponentModel.DataAnnotations;
+@using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
+
+@model List<Pelis>
+
+
+<h1>Las Imagenes cambian en <strong>Pelis 2</strong> en el Navbar</h1>
+
+<div style="background:url('https://th.bing.com/th/id/R.009bb337d4d5acdb41466f03c8afc17b?rik=nmVbKN8zpvwcRg&pid=ImgRaw&r=0'); border-radius:10px">
+
+
+        @foreach (var modelo in Model)
+        {
+                <div class="card">
+                    <div class="info">
+                        <div class="name">Titulo</div>
+                        <div class="prof">@Html.DisplayFor(x => modelo.titulo)</div>
+                        <div class="divider"></div>
+                        <div class="bio">
+                            <textarea>
+                                @Html.DisplayFor(x => modelo.descripcion)
+                            </textarea>
+                </div>
+                    
+              
+            </div>
+                    <div class="photo" style="background-image:url('@Html.DisplayFor(x => modelo.imagen)'); background-repeat:no-repeat;"></div>
+            <a id="enlace" href="@Html.DisplayFor(x=> modelo.video)" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" target="_blank">Ver Pelicula</a>
+       
+                </div>
+    }
+      
+</div>
